@@ -1,0 +1,15 @@
+<PDLApp>
+    <data>
+
+    </data>
+    
+    <screens>
+        <screen>
+            <element type="">
+                <onclick>
+                    <command></command>
+                </onclick>
+            </element>
+        </screen>
+    </screens>
+</PDLApp>

@@ -1,5 +1,6 @@
 class Screen{
-    constructor(){
+    constructor(ownerApp){
+        this.ownerApp = ownerApp;
         this.elements ={};
 
     }
