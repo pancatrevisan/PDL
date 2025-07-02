@@ -6,6 +6,9 @@ class PDLApp{
         this.commandCenter = null;
         
     }
+    getComandCenter(){
+        return this.commandCenter;
+    }
     start(){
 
     }
