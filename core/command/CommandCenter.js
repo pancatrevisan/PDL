@@ -3,4 +3,15 @@ class commandCenter{
         this.commands = [];
         this.currentCommand = null;
     }
+
+    pushCommand(){
+
+    }
+
+    getCurrentCommand(){
+
+    }
+    update(dt){
+        
+    }
 }
