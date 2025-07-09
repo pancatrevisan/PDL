@@ -1,9 +1,9 @@
 
 class Data{
-    static TYPE_TEXT = "TEXT";
-    static TYPE_NUMBER = "NUMBER";
+    static DATA_TYPE = {TEXT: "TEXT", NUMBER: "NUMBER"};
+    
     constructor(){
         this.multValue = false;
-        this.type = Data.TYPE_TEXT;
+        this.type = Data.DATA_TYPE.TEXT;
     }
 }
