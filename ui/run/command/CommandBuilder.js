@@ -1,0 +1,6 @@
+class CommandBuilder{
+
+    static buildCommandBatch(){
+        
+    }
+}
