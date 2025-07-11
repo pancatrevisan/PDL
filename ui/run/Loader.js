@@ -1,4 +1,4 @@
-class Runner{
+class Loader{
     constructor(){
         this.loadScripts();
 

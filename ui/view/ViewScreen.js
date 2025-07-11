@@ -17,12 +17,14 @@ class ViewScreen{
             return;
         
         
+        
     }
 
     render(){
 
-    }
 
+    }
+        
     
     
 }
