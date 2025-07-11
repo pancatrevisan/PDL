@@ -1,14 +1,25 @@
 <PDLApp>
+    <firstScreen>firstScreen</firstScreen>
     <data>
-
+        <PDLData  name="input_test" type="TEXT" displayOnly="false"></PDLData>  
     </data>
     
     <screens>
-        <screen>
-            <element type="">
-                <onclick>
-                    <command></command>
-                </onclick>
+        <screen name="firstScreen">
+
+            <element type="PDLButton">
+                <actions>
+                    <onclick>
+                        <command type="nextScreen" nextScreenName="secondScreen"></command>
+                    </onclick>
+                </actions>
+                
+            </element>
+        </screen>
+
+        <screen name="secondScreen"> 
+            <element type="DisplayData" data="input_test">
+
             </element>
         </screen>
     </screens>
