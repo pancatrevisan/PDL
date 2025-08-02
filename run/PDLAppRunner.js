@@ -4,6 +4,7 @@ class PDLAppRunner{
         
         this.currentScreen = null;
         this.commandCenter = null;
+        this.PDLApp = PDLApp;
     }
     getComandCenter(){
         return this.commandCenter;

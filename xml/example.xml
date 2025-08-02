@@ -1,5 +1,7 @@
 <PDLApp>
-    <firstScreen>firstScreen</firstScreen>
+    <startScreen>firstScreen</startScreen>
+    <version></version>
+    <name></name>
     <data>
         <PDLData  name="input_test" type="TEXT" displayOnly="false"></PDLData>  
     </data>

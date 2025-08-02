@@ -1,6 +1,70 @@
 class PDLAppLoader{
     constructor(textData){
         let parser= new DOMParser();
-        let xmlDoc = parser.parseFromString(textData,"text/xml");
+        this.xmlDoc = parser.parseFromString(textData,"text/xml");
+        
+
+    }
+    loadApp(){
+        let app = new PDLApp();
+
+        let firstScreenName = this.xmlDoc.getElementsByTagName("startScreen")[0].childNodes[0].nodeValue;
+        console.log(firstScreenName);
+        app.startScreen = firstScreenName; 
+        let xmlScreens = this.xmlDoc.getElementsByTagName('screen');
+
+        this.loadScreen(xmlScreens[0]);
+        return app;
+    }
+
+    loadScreen(xml){
+        let name = xml.getAttribute('name');
+
+        let screen = new PDLScreen();
+        screen.name = name;
+
+        let els_ = xml.getElementsByTagName('element');
+
+        for (let e of els_){
+            console.log(e);
+            this.loadElement(e);
+        }
+    }
+    loadElement(el){
+
+        let element = new PDLElement();
+
+        let actions = el.getElementsByTagName('actions')[0].childNodes;
+        
+        //cada action... 
+        for(let a of actions){
+            
+            if(a.nodeType == Node.ELEMENT_NODE){
+                let act = {};
+                act['type'] = a.nodeName ;    
+                act['commands'] = [];
+                
+                //carrega os comandos da action...
+                let cmds = a.getElementsByTagName('command');
+                
+
+                //cria o comando, pegando os atributos.
+                for (let c of cmds){
+                    let command = {};
+
+                    for (let i = 0; i < c.attributes.length; i++) {
+                        const attr = c.attributes[i];
+                        command[attr.name] = attr.nodeValue;
+                    }
+                    
+                    
+                    act['commands'].push(command);
+                }
+                console.log(act);       
+            }
+            
+            
+        }
+
     }
 }

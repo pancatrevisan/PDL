@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="core/PDLScreen.js"></script>
+        <script src="core/PDLApp.js"></script>
+        <script src="core/element/PDLElement.js"></script>
+        <script src="core/PDLAppLoader.js"></script>
+
+        <script>
+            function loadApp(){
+                let req = new XMLHttpRequest();
+                req.onreadystatechange = function(){
+                     if (this.readyState == 4 && this.status == 200) {
+                        let loader = new PDLAppLoader(req.responseText);
+                        let app = loader.loadApp();
+                        console.log(app);
+                     }
+                    
+                };
+                req.open("GET", "xml/example.xml");
+                req.send();
+            }
+        </script>
+    </head>
+    <body onload="loadApp()">
+
+    </body>
+
+</html>
