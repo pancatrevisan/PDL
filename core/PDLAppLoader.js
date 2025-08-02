@@ -1,10 +1,12 @@
 class PDLAppLoader{
+
+    //textData: XML content. 
     constructor(textData){
         let parser= new DOMParser();
         this.xmlDoc = parser.parseFromString(textData,"text/xml");
-        
-
     }
+
+
     loadApp(){
         let app = new PDLApp();
 
@@ -13,7 +15,11 @@ class PDLAppLoader{
         app.startScreen = firstScreenName; 
         let xmlScreens = this.xmlDoc.getElementsByTagName('screen');
 
-        this.loadScreen(xmlScreens[0]);
+        for(let scr of xmlScreens){
+            this.loadScreen(scr);
+        }
+        
+
         return app;
     }
 
@@ -34,36 +40,40 @@ class PDLAppLoader{
 
         let element = new PDLElement();
 
-        let actions = el.getElementsByTagName('actions')[0].childNodes;
+        let actions = el.getElementsByTagName('actions');
         
         //cada action... 
-        for(let a of actions){
-            
-            if(a.nodeType == Node.ELEMENT_NODE){
-                let act = {};
-                act['type'] = a.nodeName ;    
-                act['commands'] = [];
-                
-                //carrega os comandos da action...
-                let cmds = a.getElementsByTagName('command');
-                
+        if(actions.length > 0 ){
 
-                //cria o comando, pegando os atributos.
-                for (let c of cmds){
-                    let command = {};
+            actions = actions[0].childNodes; //só tem um actions por element.
+            for(let a of actions){
+                
+                if(a.nodeType == Node.ELEMENT_NODE){
+                    let act = {};
+                    act['type'] = a.nodeName ;    
+                    act['commands'] = [];
+                    
+                    //carrega os comandos da action...
+                    let cmds = a.getElementsByTagName('command');
+                    
 
-                    for (let i = 0; i < c.attributes.length; i++) {
-                        const attr = c.attributes[i];
-                        command[attr.name] = attr.nodeValue;
+                    //cria o comando, pegando os atributos.
+                    for (let c of cmds){
+                        let command = {};
+
+                        for (let i = 0; i < c.attributes.length; i++) {
+                            const attr = c.attributes[i];
+                            command[attr.name] = attr.nodeValue;
+                        }
+                        
+                        
+                        act['commands'].push(command);
                     }
-                    
-                    
-                    act['commands'].push(command);
+                    console.log(act);       
                 }
-                console.log(act);       
+                
+                
             }
-            
-            
         }
 
     }
