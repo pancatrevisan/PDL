@@ -12,7 +12,7 @@
             <element type="PDLButton">
                 <actions>
                     <onclick>
-                        <command type="nextScreen" nextScreenName="secondScreen"></command>
+                        <command type="NextScreen" nextScreenName="secondScreen"></command>
                     </onclick>
                 </actions>
                 

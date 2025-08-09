@@ -4,7 +4,12 @@
         <script src="core/PDLScreen.js"></script>
         <script src="core/PDLApp.js"></script>
         <script src="core/element/PDLElement.js"></script>
+        <script src="core/element/PDLButton.js"></script>
+        <script src="core/element/DisplayData.js"></script>
+        <script src="command/Command.js"></script>
+        <script src="command/NextScreen.js"></script>
         <script src="core/PDLAppLoader.js"></script>
+        
 
         <script>
             function loadApp(){
@@ -14,6 +19,7 @@
                         let loader = new PDLAppLoader(req.responseText);
                         let app = loader.loadApp();
                         console.log(app);
+                        app.start();
                      }
                     
                 };

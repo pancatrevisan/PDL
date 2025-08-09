@@ -16,7 +16,8 @@ class PDLAppLoader{
         let xmlScreens = this.xmlDoc.getElementsByTagName('screen');
 
         for(let scr of xmlScreens){
-            this.loadScreen(scr);
+            let screen = this.loadScreen(scr);
+            app.addScreen(screen);
         }
         
 
@@ -24,21 +25,28 @@ class PDLAppLoader{
     }
 
     loadScreen(xml){
+        //screen name.
         let name = xml.getAttribute('name');
 
         let screen = new PDLScreen();
         screen.name = name;
-
+        screen.name = name;
+        //load screen's elements
         let els_ = xml.getElementsByTagName('element');
 
         for (let e of els_){
-            console.log(e);
-            this.loadElement(e);
+            let el = this.loadElement(e);
+            console.log(el);
+            screen.addElement(el);
+
         }
+        return screen;
     }
     loadElement(el){
 
-        let element = new PDLElement();
+        let clasName = el.getAttribute('type');
+
+        let element = eval('new '+clasName+'()');// new PDLElement();
 
         let actions = el.getElementsByTagName('actions');
         
@@ -59,22 +67,27 @@ class PDLAppLoader{
 
                     //cria o comando, pegando os atributos.
                     for (let c of cmds){
-                        let command = {};
+                        let attributes = {};
 
                         for (let i = 0; i < c.attributes.length; i++) {
                             const attr = c.attributes[i];
-                            command[attr.name] = attr.nodeValue;
+                            attributes[attr.name] = attr.nodeValue;
                         }
                         
+                       ;
+                        let command = eval("new "+attributes['type']+"()"); 
                         
+                        //console.log(command);
                         act['commands'].push(command);
                     }
-                    console.log(act);       
+                    element.addAction(act['type'], act['commands']);
+                    //console.log(act);       
                 }
                 
                 
             }
         }
-
+        
+        return element;
     }
 }

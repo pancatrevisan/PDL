@@ -1,5 +1,5 @@
 class Command{
-    constructor(screen, app, appRunner){
+    constructor(screen = null, app = null, appRunner = null){
         this.screen = screen;
         this.app = app;
         this.appRunner = appRunner;
