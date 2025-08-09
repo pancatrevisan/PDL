@@ -9,7 +9,7 @@
     <screens>
         <screen name="firstScreen">
 
-            <element type="PDLButton">
+            <element type="PDLButton" position="[10,20]" text="Próxima Tela">
                 <actions>
                     <onclick>
                         <command type="NextScreen" nextScreenName="secondScreen"></command>

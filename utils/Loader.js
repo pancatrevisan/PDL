@@ -5,9 +5,9 @@ class Loader{
     }
 
     loadScripts(){
-        let    fileList = ['core/PDLData.js', 'core/PDLMedia.js'];
+        let    fileList = ['core/PDLData.js', 'core/PDLMedia.js', 'core/PDLScreen.js', 'core/PDLApp.js'];
         for(file in fileList){
-
+            
         }
     }
 }

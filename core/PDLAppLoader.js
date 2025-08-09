@@ -48,6 +48,14 @@ class PDLAppLoader{
 
         let element = eval('new '+clasName+'()');// new PDLElement();
 
+        let el_attributes = {};
+
+        for (let i = 0; i < el.attributes.length; i++) {
+            const attr = el.attributes[i];
+            el_attributes[attr.name] = attr.nodeValue;
+        }
+        element.setAttributes(el_attributes);
+
         let actions = el.getElementsByTagName('actions');
         
         //cada action... 

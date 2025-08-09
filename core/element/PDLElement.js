@@ -7,4 +7,12 @@ class PDLElement{
     addAction(name, commands){
         this.actions[name] = commands;
     }
+    setAttributes(attrs){
+        
+
+        for(let k in attrs){
+            this[k] = attrs[k];
+            
+        }
+    }
 }
