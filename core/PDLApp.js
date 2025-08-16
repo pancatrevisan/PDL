@@ -1,5 +1,6 @@
 class PDLApp{
     static APP_RUN_STATUS = {RUNNING: "RUNNING", PAUSED: "PAUSED", NOT_STARTED:"NOT_STARTED"};
+    static APP_DISPLAY_ID = "PDLApp";
     constructor(){
         this.name = "";
         
@@ -9,18 +10,22 @@ class PDLApp{
         this.startScreen = "";
         this.timer = null;
         this.status = PDLApp.APP_RUN_STATUS.NOT_STARTED;
+        this.currentScreen = null;
     }
 
     addScreen(screen){
+        
         this.screens[screen.name] = screen;
     }
     
     render(){
-        console.log("render");
+        if(this.currentScreen == null)
+            return;
+        this.currentScreen.render();
     }
 
     update(){
-        console.log("update");
+        
     }
 
     step(app){
@@ -28,11 +33,17 @@ class PDLApp{
            return; 
         }
         app.update();
-        app.render();
+        //app.render();
+    }
+    changeScreen(screen){
+        this.currentScreen = this.screens[screen];
+        this.render();
     }
     start(){
-        this.status = PDLApp.APP_RUN_STATUS.RUNNING;
-       // this.timer = setInterval(this.step, 1000/3, this);
+        this.status = PDLApp.APP_RUN_STATUS.RUNNING;        
+        this.currentScreen = this.startScreen;
+        this.changeScreen(this.currentScreen);
+
     }
 
     pause(){
