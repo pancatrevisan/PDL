@@ -11,3 +11,8 @@ body{
     padding: 3px;
 }
 
+.input-pdl{
+    border-radius: 5px;
+    border-style: solid;
+    border-color: blue;
+}

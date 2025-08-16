@@ -1,9 +1,9 @@
 <PDLApp>
-    <startScreen>firstScreen</startScreen>
+    <startScreen>secondScreen</startScreen>
     <version></version>
     <name></name>
     <data>
-        <PDLData  name="input_test" type="TEXT" displayOnly="false"></PDLData>  
+        <PDLData  name="input_test" type="TEXT" displayOnly="false" value="Oi, eu sou o Goku!"></PDLData>  
     </data>
     
     <screens>

@@ -1,9 +1,9 @@
 
-class Data{
+class PDLData{
     static DATA_TYPE = {TEXT: "TEXT", NUMBER: "NUMBER"};
     
     constructor(){
         this.multValue = false;
-        this.type = Data.DATA_TYPE.TEXT;
+        this.type = PDLData.DATA_TYPE.TEXT;
     }
 }

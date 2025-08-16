@@ -11,11 +11,21 @@ class PDLApp{
         this.timer = null;
         this.status = PDLApp.APP_RUN_STATUS.NOT_STARTED;
         this.currentScreen = null;
+        this.data = null;
+    }
+
+    getData(name){
+        console.log(this.data);
+        return this.data[name];
+    }
+    setData(data){
+        this.data = data;
     }
 
     addScreen(screen){
         
         this.screens[screen.name] = screen;
+        screen.setApp(this);
     }
     
     render(){

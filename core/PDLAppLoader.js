@@ -11,7 +11,12 @@ class PDLAppLoader{
         let app = new PDLApp();
 
         let firstScreenName = this.xmlDoc.getElementsByTagName("startScreen")[0].childNodes[0].nodeValue;
-        console.log(firstScreenName);
+        
+        let data = this.loadData(this.xmlDoc.getElementsByTagName('PDLData'));
+        
+        app.setData(data);
+
+
         app.startScreen = firstScreenName; 
         let xmlScreens = this.xmlDoc.getElementsByTagName('screen');
 
@@ -22,6 +27,21 @@ class PDLAppLoader{
         
 
         return app;
+    }
+
+    loadData(nodes){
+        let all_data = {};
+        for( let n of nodes){
+            let data = new PDLData();
+            
+            for (let i = 0; i < n.attributes.length; i++) {
+                const attr = n.attributes[i];
+                data[attr.name] = attr.nodeValue;
+            }
+            all_data[data.name] = data;
+        }
+
+        return all_data;
     }
 
     loadScreen(xml){
