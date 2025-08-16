@@ -15,7 +15,6 @@ class PDLApp{
     }
 
     getData(name){
-        console.log(this.data);
         return this.data[name];
     }
     setData(data){
@@ -43,7 +42,6 @@ class PDLApp{
            return; 
         }
         app.update();
-        //app.render();
     }
     changeScreen(screen){
         this.currentScreen = this.screens[screen];
