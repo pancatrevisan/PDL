@@ -103,9 +103,13 @@ class PDLAppLoader{
                         }
                         
                        ;
-                        let command = eval("new "+attributes['type']+"()"); 
+                        //let command = eval("new "+attributes['type']+"()"); 
                         
-                        //console.log(command);
+                        let str = attributes['type'];
+                        let command = (Function('return new ' + str))();
+                        
+                        
+                        
                         act['commands'].push(command);
                     }
                     element.addAction(act['type'], act['commands']);
