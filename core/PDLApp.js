@@ -9,7 +9,7 @@ class PDLApp{
         this.timer = null;
         this.status = PDLApp.APP_RUN_STATUS.NOT_STARTED;
         this.currentScreen = null;
-       // this.commandCenter = new this.commandCenter();
+        this.commandCenter = new CommandCenter();
         this.data = null;
     }
 

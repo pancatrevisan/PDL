@@ -3,8 +3,9 @@ class PDLElement{
         this.position = [];
         this.actions = {};
         this.screen = null;
-
-        this.app = null;
+        //this.commands = null;
+        
+        this.events = {};
     }
 
     setScreen(screen){
@@ -13,20 +14,25 @@ class PDLElement{
     setApp(app){
         this.app = app;
     }
-    /*
-    addAction(name, commands){
-        this.actions[name] = commands;
-    }*/
+    addEvents(html_tag){
+        
+        for(let k in this.events){
+            html_tag.addEventListener(k, this.events[k]);
+            //html_tag.k = this.events[k];
+            console.log(k );
+        }
+    }
+
    addAction(name, commands){
-    console.log(commands);
-    console.log("action: " + name);
-        this[name] = function(){
-            for(let i = 0; i < commands.length; i++){
-                this.app.commandCenter.pushCommand(commands[i]);
+    
+    let el = this;     
+    this.events[name] = 
+        function(){
+            console.log("click!");
+            for(let i = 0; i < commands.length; i++){      
+                el.screen.app.commandCenter.pushCommand(commands[i]);
             }
-            
         };
-        console.log(this.onclick);
     }
     setAttributes(attrs){
         for(let k in attrs){

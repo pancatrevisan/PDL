@@ -21,6 +21,7 @@ class PDLScreen{
     addElement(el){
         this.elements.push(el);
         el.setScreen(this);
+        
     }
 
     render(){

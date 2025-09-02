@@ -11,9 +11,9 @@
 
             <element type="PDLButton" position="[10,20]" text="Próxima Tela">
                 <actions>
-                    <onclick>
+                    <click>
                         <command type="NextScreen" nextScreenName="secondScreen"></command>
-                    </onclick>
+                    </click>
                 </actions>
                 
             </element>

@@ -1,4 +1,4 @@
-class commandCenter{
+class CommandCenter{
     constructor(){
         this.commands = [];
         this.currentCommand = null;
