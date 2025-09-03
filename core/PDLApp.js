@@ -9,7 +9,7 @@ class PDLApp{
         this.timer = null;
         this.status = PDLApp.APP_RUN_STATUS.NOT_STARTED;
         this.currentScreen = null;
-        this.commandCenter = new CommandCenter();
+        this.commandCenter = new CommandCenter(this);
         this.data = null;
     }
 
@@ -32,15 +32,16 @@ class PDLApp{
         this.currentScreen.render();
     }
 
-    update(){
+    update(dt){
+        this.commandCenter.update(dt);
         
     }
 
-    step(app){
+    step(app, dt){
         if(!this.status  == PDLApp.APP_RUN_STATUS.RUNNING){
            return; 
         }
-        app.update();
+        app.update(dt);
     }
     changeScreen(screen){
         this.currentScreen = this.screens[screen];
@@ -50,6 +51,8 @@ class PDLApp{
         this.status = PDLApp.APP_RUN_STATUS.RUNNING;        
         this.currentScreen = this.startScreen;
         this.changeScreen(this.currentScreen);
+        let app = this;
+        this.timer = setInterval(app.step, 1000/3, app, 1000/3);
 
     }
 

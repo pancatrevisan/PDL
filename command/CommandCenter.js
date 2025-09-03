@@ -1,5 +1,6 @@
 class CommandCenter{
-    constructor(){
+    constructor(app){
+        this.app = app;
         this.commands = [];
         this.currentCommand = null;
     }
@@ -32,10 +33,15 @@ class CommandCenter{
     }
 
     update(dt){
-        if(this.currentCommand == null){
+        if(this.commands.length <= 0 && this.currentCommand == null){
             return;
         }
-
+        if(this.currentCommand == null){
+            this.currentCommand = this._popCommand();
+            //return;
+        }
+        console.log("commandCenter update");
+        
         this.currentCommand.update(dt);
 
         if(this.currentCommand.completed){

@@ -10,6 +10,6 @@ class Command{
 
     }
     update(dt){
-
+        throw("Command: OverWrite");
     }
 }
