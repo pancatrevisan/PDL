@@ -46,6 +46,8 @@ class CommandCenter{
 
         if(this.currentCommand.completed){
             this.currentCommand = this._popCommand();
+            if(this.currentCommand == null)
+                return;
             this.currentCommand.startRunning();
         }
 
