@@ -28,7 +28,6 @@ class PDLElement{
     let el = this;     
     this.events[name] = 
         function(){
-            console.log("click!");
             for(let i = 0; i < commands.length; i++){      
                 el.screen.app.commandCenter.pushCommand(commands[i]);
             }

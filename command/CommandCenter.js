@@ -41,7 +41,7 @@ class CommandCenter{
             //return;
         }
         console.log("commandCenter update");
-        
+        console.log(this.currentCommand);
         this.currentCommand.update(dt);
 
         if(this.currentCommand.completed){

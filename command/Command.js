@@ -1,10 +1,16 @@
 class Command{
-    constructor(data, screen = null, app = null, appRunner = null){
-        this.screen = screen;
-        this.app = app;
-        this.appRunner = appRunner;
+    constructor(){
+        
+        this.screen = null;
+        this.app = null;
+        //this.appRunner = appRunner;
         this.running    = false;
         this.completed  = false;
+    }
+    setData(data){
+        for (let v in data){
+            this[v] = data[v];
+        }
     }
     startRunning(){
 

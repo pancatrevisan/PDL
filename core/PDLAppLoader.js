@@ -21,7 +21,7 @@ class PDLAppLoader{
         let xmlScreens = this.xmlDoc.getElementsByTagName('screen');
 
         for(let scr of xmlScreens){
-            let screen = this.loadScreen(scr);
+            let screen = this.loadScreen(scr, app);
             app.addScreen(screen);
         }
         
@@ -44,7 +44,7 @@ class PDLAppLoader{
         return all_data;
     }
 
-    loadScreen(xml){
+    loadScreen(xml, app ){
         //screen name.
         let name = xml.getAttribute('name');
 
@@ -55,14 +55,14 @@ class PDLAppLoader{
         let els_ = xml.getElementsByTagName('element');
 
         for (let e of els_){
-            let el = this.loadElement(e);
+            let el = this.loadElement(e, app, screen);
             console.log(el);
             screen.addElement(el);
 
         }
         return screen;
     }
-    loadElement(el){
+    loadElement(el, app, screen){
 
         let clasName = el.getAttribute('type');
 
@@ -107,7 +107,9 @@ class PDLAppLoader{
                         
                         let str = attributes['type'];
                         let command = (Function('return new ' + str))();
-                        
+                        attributes['app'] = app; 
+                        attributes['screen'] = screen;
+                        command.setData(attributes);
                         
                         
                         act['commands'].push(command);
