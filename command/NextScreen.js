@@ -7,6 +7,7 @@ class NextScreen extends Command{
     update(dt){
 
         //TODO: this.app = 
+        this.app.changeScreen(this.nextScreenName);
         this.completed = true;
         //this.app
     }

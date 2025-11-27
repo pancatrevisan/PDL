@@ -45,6 +45,8 @@ class PDLApp{
     }
     changeScreen(screen){
         this.currentScreen = this.screens[screen];
+        //clear render
+        document.getElementById(PDLApp.APP_DISPLAY_ID).innerHTML = "";
         this.render();
     }
     start(){
