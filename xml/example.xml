@@ -5,7 +5,9 @@
     <data>
         <PDLData  name="input_test" type="TEXT" displayOnly="false" value="Oi, eu sou o Goku!"></PDLData>  
     </data>
-    
+    <media>
+        <PDLMedia name="logo_image" type="IMAGE" src="logo.png"></PDLMedia>
+    </media>
     <screens>
         <screen name="firstScreen">
 
@@ -16,6 +18,9 @@
                     </click>
                 </actions>
                 
+            </element>
+            <element> type="PDLDisplayMedia" media="logo_image" position="[50,50]">
+
             </element>
         </screen>
 

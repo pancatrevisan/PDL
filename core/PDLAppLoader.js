@@ -14,6 +14,8 @@ class PDLAppLoader{
         
         let data = this.loadData(this.xmlDoc.getElementsByTagName('PDLData'));
         
+
+
         app.setData(data);
 
 
@@ -27,6 +29,19 @@ class PDLAppLoader{
         
 
         return app;
+    }
+
+    loadMedia(nodes){
+        let all_media = {};
+        for(let n of nodes){
+            let media = new PDLMedia();
+             for (let i = 0; i < n.attributes.length; i++) {
+                const attr = n.attributes[i];
+                media[attr.name] = attr.nodeValue;
+            }
+            all_media[media.name] = data;
+        }
+        return all_media;
     }
 
     loadData(nodes){
