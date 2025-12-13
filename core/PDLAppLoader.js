@@ -14,10 +14,14 @@ class PDLAppLoader{
         
         let data = this.loadData(this.xmlDoc.getElementsByTagName('PDLData'));
         
+        let media = this.loadMedia(this.xmlDoc.getElementsByTagName('PDLMedia'));
+
+        app.setMedia(media);
 
 
         app.setData(data);
 
+        
 
         app.startScreen = firstScreenName; 
         let xmlScreens = this.xmlDoc.getElementsByTagName('screen');
@@ -39,7 +43,7 @@ class PDLAppLoader{
                 const attr = n.attributes[i];
                 media[attr.name] = attr.nodeValue;
             }
-            all_media[media.name] = data;
+            all_media[media.name] = media;
         }
         return all_media;
     }

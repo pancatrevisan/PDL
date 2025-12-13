@@ -10,7 +10,16 @@ class PDLApp{
         this.status = PDLApp.APP_RUN_STATUS.NOT_STARTED;
         this.currentScreen = null;
         this.commandCenter = new CommandCenter(this);
+        this.media = null;
         this.data = null;
+    }
+
+    setMedia(media){
+        this.media = media;
+    }
+
+    getMedia(name){
+        return this.media[name];
     }
 
     getData(name){
