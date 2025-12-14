@@ -16,7 +16,7 @@ class PDLDisplayMedia extends PDLElement{
             img.src = _media.src;
             html.appendChild(img);
         }
-
+        this.addEvents(html);
         html.classList.add("media-pdl");
 
         return html;

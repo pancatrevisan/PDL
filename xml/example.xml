@@ -3,7 +3,7 @@
     <version></version>
     <name></name>
     <data>
-        <PDLData  name="input_test" type="TEXT" displayOnly="false" value="Oi, eu sou o Goku!"></PDLData>  
+        <PDLData  name="input_test" type="TEXT" displayOnly="false" value="Campo de Entrada"></PDLData>  
     </data>
     <media>
         <PDLMedia name="logo_image" type="IMAGE" src="img_csgo.png"></PDLMedia>
@@ -20,13 +20,25 @@
                 
             </element>
             <element type="PDLDisplayMedia" media="logo_image" position="[50,50]">
-
+                <actions>
+                    <click>
+                        <command type="NextScreen" nextScreenName="secondScreen"></command>
+                    </click>
+                </actions>
             </element>
         </screen>
 
         <screen name="secondScreen"> 
             <element type="DisplayData" data="input_test">
 
+            </element>
+            <element type="PDLButton" position="[10,20]" text="Tela Anterior">
+                <actions>
+                    <click>
+                        <command type="NextScreen" nextScreenName="firstScreen"></command>
+                    </click>
+                </actions>
+                
             </element>
         </screen>
     </screens>

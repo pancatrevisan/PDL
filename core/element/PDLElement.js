@@ -23,6 +23,9 @@ class PDLElement{
         }
     }
 
+    /* Every action is described in the XML. The action tag name is the event, for
+       example, 'onclick' would be <click> ... </click>
+    */
    addAction(name, commands){
     
     let el = this;     

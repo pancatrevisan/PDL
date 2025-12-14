@@ -4,11 +4,9 @@ class PDLButton extends PDLElement{
     }
     render(){
         let html = document.createElement('button');
-        //html.id = 
-        html.innerHTML = "Botão";
+        html.innerHTML = this.text;
         html.classList.add("btn-pdl");
         this.addEvents(html);
-        console.log(html);
         return html;
     }
 }
