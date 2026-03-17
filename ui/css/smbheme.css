@@ -3,10 +3,11 @@ body{
 }
 
 .btn-pdl{
+    font-size: 14pt;
     background-color: red;
-    color: blue;
-    font-size: 12pt;
-    text-shadow: 2px 2px #FFF;
+    color: #fff;
+    
+    text-shadow: 2px 2px #000;
     border-radius: 5px;
     padding: 3px;
 }

@@ -6,7 +6,7 @@
         <PDLData  name="input_test" type="TEXT" displayOnly="false" value="Campo de Entrada"></PDLData>  
     </data>
     <media>
-        <PDLMedia name="logo_image" type="IMAGE" src="img_csgo.png"></PDLMedia>
+        <PDLMedia name="logo_image" type="IMAGE" src="uems-novo.png"></PDLMedia>
     </media>
     <screens>
         <screen name="firstScreen">
