@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="editor.js"></script>
+        <script src="../utils/Loader.js"></script>
+
+        <script>
+            new Loader("../");
+            function body_loaded(){
+                
+            console.log("new editor");
+            let editor = new Editor();
+            };
+            
+        </script>
+    </head>
+    <body onload="body_loaded()">
+        <div id="PDL_EDITOR">
+
+        </div>
+    </body>
+</html>
