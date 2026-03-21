@@ -1,22 +1,47 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script src="https://kit.fontawesome.com/9baefea985.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet"  href="editor.css"> 
         <script src="editor.js"></script>
         <script src="../utils/Loader.js"></script>
 
         <script>
             new Loader("../");
+            var editor; 
             function body_loaded(){
                 
             console.log("new editor");
-            let editor = new Editor();
+            editor = new Editor();
             };
             
         </script>
     </head>
     <body onload="body_loaded()">
-        <div id="PDL_EDITOR">
 
+        <div id="screens">
+            
+            <i onclick="editor.uiRetractScreenMenu()" id="button-retract-screens" class="fa-solid fa-angle-up"></i>
+            <i onclick="editor.uiExpandScreenMenu()" id="button-expand-screens" class="fa-solid fa-angle-down"></i>
+
+            <div id="screens_panel">
+                asdasd <br> asdada <br> asada <br> asdas
+            </div>
+        </div>
+        <div id="post-screens">
+
+        
+            <div id="elements"> 
+                <div id="elements_panel">
+                    asfasfa
+                </div>
+            </div>
+            
+            <div id="editor">
+                <div id="editor_content">
+                    asffa
+                </div>
+            </div>
         </div>
     </body>
 </html>
