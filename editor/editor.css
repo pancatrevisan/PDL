@@ -10,8 +10,7 @@ body{
 
 #screens{
     background-color: tomato;   
-    height: 30px;
-    position: relative;
+    min-height: 30px;
 }
 
 #screens_panel{
@@ -23,7 +22,7 @@ body{
 
 #post-screens{
     background-color: bisque;
-    position: relative;
+    position: static;
 }
 
 #elements{
