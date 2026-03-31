@@ -8,6 +8,10 @@ body{
 .button-screen{
     display: inline-block;
     float: left;
+    border-style: solid;
+    border-width: 1 px;
+    border-radius: 5px;
+    height: 150px;
 }
 
 
