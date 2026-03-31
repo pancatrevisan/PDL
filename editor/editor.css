@@ -5,7 +5,10 @@ body{
     background-color: lightgray;
 }
 
-
+.button-screen{
+    display: inline-block;
+    float: left;
+}
 
 
 #screens{
