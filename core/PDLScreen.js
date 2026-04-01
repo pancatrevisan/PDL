@@ -33,6 +33,14 @@ class PDLScreen{
         document.getElementById(PDLApp.APP_DISPLAY_ID).appendChild(html);
     }
 
+    renderToText(){
+        var html = document.createElement("div");
+        for(let e of this.elements){
+            html.appendChild(e.render());
+        }
+        return html;
+    }
+
     
 
     

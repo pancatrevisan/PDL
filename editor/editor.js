@@ -16,6 +16,8 @@ class Editor
 
     }
 
+    
+
     newApp(){
         let me = this;
         let req = new XMLHttpRequest();
@@ -32,15 +34,29 @@ class Editor
 
     editScreen(screen){
         document.getElementById(EDITOR_ID).replaceChildren();
+        
+    }
+
+    updateEditor(){
+        if (this.app == null){
+            return;
+        }
 
     }
 
     //creates a new screen to the app.
     addNewScreenToApp(){
+        if(this.app == null){
+            console.log("App is null");
+            return;
+        }
         console.log("Add new Screen");
-        let scr = null;
-
-        this.addScreenToPanel(scr);
+        let screen = new PDLScreen();
+        screen.name = "New Screen";
+        
+        this.app.addScreen(screen);
+        //this.addScreenToPanel(screen);
+        this.updateEditor();
 
     }
 

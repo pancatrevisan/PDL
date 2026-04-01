@@ -69,7 +69,6 @@ class PDLAppLoader{
 
         let screen = new PDLScreen();
         screen.name = name;
-        screen.name = name;
         //load screen's elements
         let els_ = xml.getElementsByTagName('element');
 
