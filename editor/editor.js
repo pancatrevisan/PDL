@@ -37,6 +37,7 @@ class Editor
 
     //creates a new screen to the app.
     addNewScreenToApp(){
+        console.log("Add new Screen");
         let scr = null;
 
         this.addScreenToPanel(scr);
