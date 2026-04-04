@@ -24,7 +24,8 @@ class Editor
         req.onreadystatechange = function(){
                 if (this.readyState == 4 && this.status == 200) {
                     let loader = new PDLAppLoader(req.responseText);
-                    me.app = loader.loadApp();                
+                    me.app = loader.loadApp();
+                    me.updateEditor();                
                 }
         };
         req.open("GET", "xml/empty_template.xml");
@@ -37,10 +38,22 @@ class Editor
         
     }
 
+
+
     updateEditor(){
+        console.log("update screen");
         if (this.app == null){
             return;
         }
+        console.log(this.app.screens);
+
+        for( let [key, value] of Object.entries(this.app.screens)){
+            this.addScreenToPanel(this.app.screens[key]);
+        }
+
+        
+        
+        
 
     }
 
@@ -67,6 +80,15 @@ class Editor
 
     //aadd an screen to selector panel
     addScreenToPanel(scr){
+        let div = document.createElement('button');
+        div.classList.add('button-screen');
+        let id = this.app.name + '_' + scr.name;
+        div.onclick = function(){};
+        div.innerHTML = scr.name;
+        div.setAttribute('data-scrName',scr.name);
+        console.log(div);
+        let btn_insert = document.getElementById('add-screen');
+        btn_insert.parentElement.insertBefore(div,btn_insert);
 
     }
 
