@@ -42,6 +42,10 @@ class Editor
 
     updateEditor(){
         console.log("update screen");
+        let add_button = document.getElementById('add-screen');
+        document.getElementById('screens_panel').innerHTML = "";
+        document.getElementById('screens_panel').appendChild(add_button);
+
         if (this.app == null){
             return;
         }
@@ -50,6 +54,7 @@ class Editor
         for( let [key, value] of Object.entries(this.app.screens)){
             this.addScreenToPanel(this.app.screens[key]);
         }
+           
 
         
         
@@ -65,7 +70,13 @@ class Editor
         }
         console.log("Add new Screen");
         let screen = new PDLScreen();
-        screen.name = "New Screen";
+        let scr_n = 1;
+        
+        
+        while(("SCR " + scr_n) in this.app.screens){
+            scr_n++;
+        }
+        screen.name = "SCR " + scr_n;
         
         this.app.addScreen(screen);
         //this.addScreenToPanel(screen);

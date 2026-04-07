@@ -10,8 +10,8 @@ body{
     display: inline-block;
     
     
-    min-height: 100px;
-    width: 50px;
+    min-height: 200px;
+    width: 100px;
 }
 .button-screen-content{
     position: absolute;
