@@ -33,9 +33,19 @@ class Editor
         req.send();
     }
 
-    editScreen(screen){
-        document.getElementById(EDITOR_ID).replaceChildren();
+    editScreen(screenName){
+        console.log("Edit Scr: "+screenName);
         
+        if (this.app == null)
+            return;
+
+        let scr = this.app.screens[screenName];
+        if( scr == null)
+            return;
+        
+        let html = scr.renderToText();
+        document.getElementById(Editor.EDITOR_ID).innerHTML = "";
+        document.getElementById(Editor.EDITOR_ID).appendChild(html);
     }
 
 
@@ -68,7 +78,7 @@ class Editor
             console.log("App is null");
             return;
         }
-        console.log("Add new Screen");
+        //console.log("Add new Screen");
         let screen = new PDLScreen();
         let scr_n = 1;
         
@@ -91,12 +101,17 @@ class Editor
 
     //aadd an screen to selector panel
     addScreenToPanel(scr){
+        let me = this;
+
         let div = document.createElement('button');
         div.classList.add('button-screen');
         let id = this.app.name + '_' + scr.name;
         div.onclick = function(){};
         div.innerHTML = scr.name;
         div.setAttribute('data-scrName',scr.name);
+        div.onclick=function(){
+            me.editScreen(scr.name);
+        };
         console.log(div);
         let btn_insert = document.getElementById('add-screen');
         btn_insert.parentElement.insertBefore(div,btn_insert);
