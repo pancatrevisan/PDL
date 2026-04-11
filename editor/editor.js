@@ -6,11 +6,15 @@ class Editor
     constructor(xml=null){
 
         this.app = null;
+        this.currentScreen = null;
         if(xml == null){
             this.newApp();
         }
 
     }
+
+
+    
 
     loadApp(xml){
 
@@ -40,9 +44,12 @@ class Editor
             return;
 
         let scr = this.app.screens[screenName];
+        
         if( scr == null)
             return;
         
+        this.currentScreen = scr;
+
         let html = scr.renderToText();
         document.getElementById(Editor.EDITOR_ID).innerHTML = "";
         document.getElementById(Editor.EDITOR_ID).appendChild(html);
@@ -121,6 +128,12 @@ class Editor
     //add an element to the current editing screen
     addElementToCurrentScreen(el){
 
+        if(this.currentScreen == null){
+            console.log("Select one screen");
+            return;
+        }
+            
+        console.log(el);
     }
 
 
