@@ -36,7 +36,9 @@ class PDLScreen{
     renderToText(){
         var html = document.createElement("div");
         for(let e of this.elements){
-            html.appendChild(e.render());
+            let render = e.render();
+            render.disabled = true;
+            html.appendChild(render);
         }
         return html;
     }

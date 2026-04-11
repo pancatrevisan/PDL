@@ -28,8 +28,8 @@ class Editor
                     me.updateEditor();                
                 }
         };
-        req.open("GET", "xml/empty_template.xml");
-
+        //req.open("GET", "xml/empty_template.xml");
+        req.open("GET", "xml/example.xml");
         req.send();
     }
 
