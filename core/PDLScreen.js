@@ -33,10 +33,11 @@ class PDLScreen{
         document.getElementById(PDLApp.APP_DISPLAY_ID).appendChild(html);
     }
 
-    renderToText(){
+    renderToEditor(){
         var html = document.createElement("div");
         for(let e of this.elements){
             let render = e.render();
+            render.classList.add('pdl-element');
             render.disabled = true;
             html.appendChild(render);
         }

@@ -50,11 +50,24 @@ class Editor
         
         this.currentScreen = scr;
 
-        let html = scr.renderToText();
+        let html = scr.renderToEditor();
+        let me = this;
+        let els = html.getElementsByClassName('pdl-element');
+        for(let e of els){
+            els.onclick = function(){ 
+                me.pdlElement_onclick(e);
+            }
+        }
+        
         document.getElementById(Editor.EDITOR_ID).innerHTML = "";
         document.getElementById(Editor.EDITOR_ID).appendChild(html);
     }
 
+
+    pdlElement_onclick(e){
+        console.log("El: ");
+        console.log(e);
+    }
 
 
     updateEditor(){
