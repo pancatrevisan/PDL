@@ -54,7 +54,8 @@ class Editor
         let me = this;
         let els = html.getElementsByClassName('pdl-element');
         for(let e of els){
-            els.onclick = function(){ 
+            
+            e.onclick = function(){ 
                 me.pdlElement_onclick(e);
             }
         }

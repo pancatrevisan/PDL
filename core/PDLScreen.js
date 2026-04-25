@@ -38,7 +38,7 @@ class PDLScreen{
         for(let e of this.elements){
             let render = e.render();
             render.classList.add('pdl-element');
-            render.disabled = true;
+            //render.disabled = true;
             html.appendChild(render);
         }
         return html;

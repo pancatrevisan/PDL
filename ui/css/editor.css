@@ -1,0 +1,13 @@
+body{
+    background-color: gainsboro;
+}
+
+.btn-pdl{
+    font-size: 14pt;
+    background-color: rgb(179, 169, 169);
+    color: #fff;
+    
+    text-shadow: 2px 2px #000;
+    border-radius: 5px;
+    padding: 3px;
+}
