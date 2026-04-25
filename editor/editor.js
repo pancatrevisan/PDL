@@ -7,6 +7,11 @@ class Editor
 
         this.app = null;
         this.currentScreen = null;
+        this.selectedElement = null;
+
+      //I don't know another solution for this. Editor.this in java Exists...  
+        let me = this;
+        document.getElementById(Editor.EDITOR_ID).onmousemove = function(){me.editor_onmousemove()};
         if(xml == null){
             this.newApp();
         }
@@ -54,8 +59,10 @@ class Editor
         let me = this;
         let els = html.getElementsByClassName('pdl-element');
 
-        for(let e of els){    
+        for(let e of els){ 
+            e.editor = me;   
             e.onclick = function(){ 
+                //Editor.this.pdlElement_onclick(e);
                 me.pdlElement_onclick(e);
             }
         }
@@ -64,11 +71,24 @@ class Editor
         document.getElementById(Editor.EDITOR_ID).appendChild(html);
     }
 
+    editor_onmousemove(){
+        console.log("move mouse " + event.offsetX+","+event.offsetY);
+        if(this.selectedElement == null)
+            return;
+        
+        //this.selectedElement.style.left = 
+        
+    }
+
+    pdlElement_editProps(e){
+
+    }
 
     pdlElement_onclick(e){
-        console.log("El: ");
-        console.log(e);
-        
+        console.log("Click. ");
+        e.editor.selectedElement = e;
+        //this.selectedElement = e;
+        //console.log(this);
     }
 
 
