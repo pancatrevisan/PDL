@@ -53,8 +53,8 @@ class Editor
         let html = scr.renderToEditor();
         let me = this;
         let els = html.getElementsByClassName('pdl-element');
-        for(let e of els){
-            
+
+        for(let e of els){    
             e.onclick = function(){ 
                 me.pdlElement_onclick(e);
             }
@@ -68,6 +68,7 @@ class Editor
     pdlElement_onclick(e){
         console.log("El: ");
         console.log(e);
+        
     }
 
 

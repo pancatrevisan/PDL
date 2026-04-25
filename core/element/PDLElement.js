@@ -3,6 +3,7 @@ class PDLElement{
         this.position = [];
         this.actions = {};
         this.screen = null;
+        this.editableAttributes = {};
         //this.commands = null;
         
         this.events = {};
