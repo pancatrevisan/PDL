@@ -72,11 +72,15 @@ class Editor
     }
 
     editor_onmousemove(){
-        console.log("move mouse " + event.offsetX+","+event.offsetY);
+        //console.log("move mouse " + event.offsetX+","+event.offsetY);
         if(this.selectedElement == null)
             return;
         
-        //this.selectedElement.style.left = 
+        //move the element. 
+
+        this.selectedElement.style.left = event.offsetX;
+        this.selectedElement.style.top = event.offsetY;
+        console.log(this.selectedElement);
         
     }
 
