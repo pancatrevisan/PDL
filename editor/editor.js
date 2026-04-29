@@ -72,15 +72,37 @@ class Editor
     }
 
     editor_onmousemove(){
-        //console.log("move mouse " + event.offsetX+","+event.offsetY);
-        if(this.selectedElement == null)
-            return;
         
+        if(this.selectedElement == null){
+            return;
+        }
+        
+        let offX = event.offsetX;
+        let offY = event.offsetY;
+        console.log("offs: ["+offX+","+offY+"]");
+        
+        //check if the event is for the div. 
+        if (event.target != document.getElementById(Editor.EDITOR_ID)){
+            return;
+        }        
         //move the element. 
+        
+        this.selectedElement.style.left = offX + "px";
+        this.selectedElement.style.top = offY + "px";
 
-        this.selectedElement.style.left = event.offsetX;
-        this.selectedElement.style.top = event.offsetY;
-        console.log(this.selectedElement);
+        let _w = this.selectedElement.getBoundingClientRect().width + offX;
+        let _h = this.selectedElement.getBoundingClientRect().height + offY ;
+        //console.log("EditorW: " + document.getElementById(Editor.EDITOR_ID).getBoundingClientRect().width + " EditorH: " + document.getElementById(Editor.EDITOR_ID).getBoundingClientRect().height + " _w: " + _w + " _h: " + _h);
+        
+        if(_w < document.getElementById(Editor.EDITOR_ID).getBoundingClientRect().width && _h < document.getElementById(Editor.EDITOR_ID).getBoundingClientRect().height)
+        {
+            return;
+        }
+        
+        
+        document.getElementById(Editor.EDITOR_ID).style.minWidth = _w +"px";
+        document.getElementById(Editor.EDITOR_ID).style.minHeight = _h + "px";
+        
         
     }
 
