@@ -1,0 +1,6 @@
+{
+  "onclick": [
+    "nextScreen",
+    "previousScreen"
+  ]
+}

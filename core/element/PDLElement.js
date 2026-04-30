@@ -4,6 +4,7 @@ class PDLElement{
         this.actions = {};
         this.screen = null;
         this.editableAttributes = {};
+        this.configurableActions = {};
         //this.commands = null;
         
         this.events = {};
