@@ -1,13 +1,18 @@
 class PDLElement{
+    static ID_COUNTER = 0;
     constructor(){
         this.position = [];
-        this.actions = {};
         this.screen = null;
-        this.editableAttributes = {};
-        this.configurableActions = {};
-        //this.commands = null;
+
+        //so the editor knows easily the editable attributes and events.
+        this.availableEvents = {};
+        this.properties = {};
         
-        this.events = {};
+        
+        this.events = [];
+        
+        this.id = "PDLElement_"+PDLElement.ID_COUNTER;
+        PDLElement.ID_COUNTER++;
     }
 
     setScreen(screen){

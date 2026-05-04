@@ -107,7 +107,8 @@ class Editor
     }
 
     pdlElement_editProps(e){
-
+        let html = document.createElement('div');
+        html.classList.add("props-editor");
     }
 
     pdlElement_onclick(e){

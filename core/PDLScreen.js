@@ -1,7 +1,7 @@
 class PDLScreen{
     
     constructor(){
-        this.elements = [];
+        this.elements = {};
         this.onLoaded = null;
         this.name = "";
 
@@ -19,7 +19,8 @@ class PDLScreen{
         document.body.appendChild(display);
     }
     addElement(el){
-        this.elements.push(el);
+        this.elements[el.id] = el;
+        //this.elements.push(el);
         el.setScreen(this);
         
     }
@@ -27,7 +28,8 @@ class PDLScreen{
     render(){
         //gen HTML
         var html = document.createElement("div");
-        for(let e of this.elements){
+        for(const key in this.elements){
+            let e = this.elements[key];
             html.appendChild(e.render());
         }
         document.getElementById(PDLApp.APP_DISPLAY_ID).appendChild(html);
@@ -35,7 +37,8 @@ class PDLScreen{
 
     renderToEditor(){
         var html = document.createElement("div");
-        for(let e of this.elements){
+        for(const key in this.elements){
+            let e = this.elements[key];
             let render = e.render();
             render.classList.add('pdl-element');
             //render.disabled = true;
