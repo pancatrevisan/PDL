@@ -109,7 +109,14 @@ class Editor
     pdlElement_editProps(e){
         let html = document.createElement('div');
         html.classList.add("props-editor");
-        let props = this.currentScreen.elements[e.id];
+        let props = this.currentScreen.elements[e.id].properties;
+        for (const k in props) {
+            
+
+
+        }
+
+
     }
 
     pdlElement_onclick(e){

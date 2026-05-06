@@ -6,9 +6,9 @@ class PDLButton extends PDLElement{
             'onclick' 
         ];
         //used in editor.
-        this.properties ={
-            'text' : {'type':'text', 'value': ''}
-        };
+        this.properties =[
+            {'name':'text', 'type':'text', 'value': ''}
+        ];
 
     }
     render(){
