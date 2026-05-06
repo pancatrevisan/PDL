@@ -1,7 +1,9 @@
 class Editor
 {
     static EDITOR_ID = "editor_content";
+    static BLOCK_PANEL_ID = "block_panel";
     static SCREENS_PANEL = "screens_panel";
+    static EDITOR_PROPS_PANEL_ID = "props_panel";
 
     constructor(xml=null){
 
@@ -109,12 +111,47 @@ class Editor
     pdlElement_editProps(e){
         let html = document.createElement('div');
         html.classList.add("props-editor");
+        html.id= Edito.EDITOR_PROPS_PANEL_ID;
         let props = this.currentScreen.elements[e.id].properties;
-        for (const k in props) {
+
+        for (let prop in props) {
+            let name    = prop['name'];
+            let type    = prop['type'];
+            let value   = prop['value']; 
+
+            let label = document.createElement('label');
+            let display ;
+            if(type == "text" || type == "number"){
+                display = document.createElement('input');
+                display.value = value;
+
+            }
+            else if(type == ""){
+
+            }
+            html.appendChild(label);
+            html.appendChild(display);
             
-
-
         }
+
+        let cancel_button = document.createElement('button');
+        cancel_button.innerHTML = "Cancel";
+        cancel_button.onclick = function(){
+            document.removeChild(document.getElementById(Editor.BLOCK_PANEL_ID));
+            document.removeChild(document.getElementById(Editor.EDITOR_PROPS_PANEL_ID));
+        };
+
+        let confirm_button = document.createElement('button');
+        confirm_button.innerHTML = "Confirm";
+        confirm_button.onclick = function(){
+              document.removeChild(document.getElementById(Editor.BLOCK_PANEL_ID));
+            document.removeChild(document.getElementById(Editor.EDITOR_PROPS_PANEL_ID));
+        };
+
+        html.appendChild(cancel_button);
+        html.appendChild(confirm_button);
+
+
 
 
     }
