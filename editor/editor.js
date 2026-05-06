@@ -62,14 +62,22 @@ class Editor
         let els = html.getElementsByClassName('pdl-element');
 
         for(let e of els){ 
-            e.editor = me;   
-            e.onclick = function(){ 
+            e.editor = me;
+            e.ondragstart = function() { return false; };
+            e.onmousedown = function(){ 
                 //Editor.this.pdlElement_onclick(e);
                 me.pdlElement_onclick(e);
+            }
+            e.onmouseup = function(){ 
+                //Editor.this.pdlElement_onclick(e);
+                me.pdlElement_onmouseup(e);
             }
         }
         
         document.getElementById(Editor.EDITOR_ID).innerHTML = "";
+        document.getElementById(Editor.EDITOR_ID).onmouseup = function(){
+            me.pdlElement_onmouseup(null);
+        }
         document.getElementById(Editor.EDITOR_ID).appendChild(html);
     }
 
@@ -162,10 +170,13 @@ class Editor
         //this.selectedElement = e;
         //console.log(this);
     }
+    pdlElement_onmouseup(e){
+        this.selectedElement = null;
+    }
 
 
     updateEditor(){
-        console.log("update screen");
+        
         let add_button = document.getElementById('add-screen');
         document.getElementById('screens_panel').innerHTML = "";
         document.getElementById('screens_panel').appendChild(add_button);
@@ -173,7 +184,7 @@ class Editor
         if (this.app == null){
             return;
         }
-        console.log(this.app.screens);
+        
 
         for( let [key, value] of Object.entries(this.app.screens)){
             this.addScreenToPanel(this.app.screens[key]);
