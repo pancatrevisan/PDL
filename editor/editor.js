@@ -4,6 +4,8 @@ class Editor
     static BLOCK_PANEL_ID = "block_panel";
     static SCREENS_PANEL = "screens_panel";
     static EDITOR_PROPS_PANEL_ID = "props_panel";
+    static PROPS_CONTEINER_ID = "elementProperties";
+    
 
     constructor(xml=null){
 
@@ -72,6 +74,15 @@ class Editor
                 //Editor.this.pdlElement_onclick(e);
                 me.pdlElement_onmouseup(e);
             }
+            e.onclick = function(){
+
+                me.pdlElement_editProps(e);
+            };
+            /*
+            let _editButton = document.createElement('button');
+            _editButton.innerHTML = "?";
+            _editButton.setAttribute("el_id",e.id);
+            e.appendChild(_editButton);*/
         }
         
         document.getElementById(Editor.EDITOR_ID).innerHTML = "";
@@ -117,17 +128,29 @@ class Editor
     }
 
     pdlElement_editProps(e){
+        console.log("Edit props");
         let html = document.createElement('div');
-        html.classList.add("props-editor");
-        html.id= Edito.EDITOR_PROPS_PANEL_ID;
+        html.classList.add('elements_panel');
+
+        let title = document.createElement('div');
+        title.classList.add('elements-props-title')
+        title.innerHTML = "Properties";
+
+
+        html.appendChild(title);
+        html.id= Editor.EDITOR_PROPS_PANEL_ID;
         let props = this.currentScreen.elements[e.id].properties;
 
-        for (let prop in props) {
+        for (let i = 0; i< props.length; i++) {
+            let prop = props[i];
+            let prop_div = document.createElement("div");
+            prop_div.classList.add("props-editor-item");
             let name    = prop['name'];
             let type    = prop['type'];
             let value   = prop['value']; 
 
             let label = document.createElement('label');
+            label.innerHTML = name;
             let display ;
             if(type == "text" || type == "number"){
                 display = document.createElement('input');
@@ -135,11 +158,14 @@ class Editor
 
             }
             else if(type == ""){
-
+                display = document.createElement('input');
+                display.value = "undef";
             }
-            html.appendChild(label);
-            html.appendChild(display);
-            
+
+            prop_div.appendChild(label);
+            prop_div.appendChild(display);
+            html.appendChild(prop_div);
+            document.getElementById(Editor.PROPS_CONTEINER_ID).append(html);
         }
 
         let cancel_button = document.createElement('button');
@@ -156,8 +182,8 @@ class Editor
             document.removeChild(document.getElementById(Editor.EDITOR_PROPS_PANEL_ID));
         };
 
-        html.appendChild(cancel_button);
-        html.appendChild(confirm_button);
+        //html.appendChild(cancel_button);
+        //html.appendChild(confirm_button);
 
 
 
@@ -245,13 +271,9 @@ class Editor
 
     //add an element to the current editing screen
     addElementToCurrentScreen(el){
-
         if(this.currentScreen == null){
-            console.log("Select one screen");
             return;
         }
-            
-        console.log(el);
     }
 
 

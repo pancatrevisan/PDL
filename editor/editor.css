@@ -103,3 +103,22 @@ body{
     top:10px;
     display: inline-block;
 }
+
+#elementProperties{
+ padding: 10px;
+    border-radius: 5px;
+    background-color: var(--leftPanelColor);   
+}
+.elements-props-title{
+font-weight: bold;
+    font-size: 16pt;
+    text-align: center;
+    margin-bottom: 10px;
+    border-bottom-style: dashed;
+    border-width: 2px;
+}
+
+.props-editor-item{
+    padding: 2px;
+    border-bottom-style: dotted;
+}
