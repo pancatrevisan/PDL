@@ -46,6 +46,13 @@ class PDLElement{
     setAttributes(attrs){
         for(let k in attrs){
             this[k] = attrs[k];
+            
+            //set properties values. Used in editor.
+            for(let p = 0; p < this.properties.length; p++){
+                if(this.properties[p]['name'] == k){
+                    this.properties[p]['value'] = attrs[k];
+                }
+            }
         }
     }
 

@@ -155,6 +155,7 @@ class Editor
             if(type == "text" || type == "number"){
                 display = document.createElement('input');
                 display.value = value;
+                
 
             }
             else if(type == ""){
@@ -165,25 +166,24 @@ class Editor
             prop_div.appendChild(label);
             prop_div.appendChild(display);
             html.appendChild(prop_div);
+            document.getElementById(Editor.PROPS_CONTEINER_ID).innerHTML = "";
             document.getElementById(Editor.PROPS_CONTEINER_ID).append(html);
         }
 
         let cancel_button = document.createElement('button');
         cancel_button.innerHTML = "Cancel";
         cancel_button.onclick = function(){
-            document.removeChild(document.getElementById(Editor.BLOCK_PANEL_ID));
-            document.removeChild(document.getElementById(Editor.EDITOR_PROPS_PANEL_ID));
+            document.getElementById(Editor.PROPS_CONTEINER_ID).innerHTML = "";
         };
 
         let confirm_button = document.createElement('button');
         confirm_button.innerHTML = "Confirm";
         confirm_button.onclick = function(){
-              document.removeChild(document.getElementById(Editor.BLOCK_PANEL_ID));
-            document.removeChild(document.getElementById(Editor.EDITOR_PROPS_PANEL_ID));
+            document.getElementById(Editor.PROPS_CONTEINER_ID).innerHTML = "";
         };
 
-        //html.appendChild(cancel_button);
-        //html.appendChild(confirm_button);
+        html.appendChild(cancel_button);
+        html.appendChild(confirm_button);
 
 
 
