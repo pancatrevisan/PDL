@@ -12,6 +12,7 @@ class Editor
         this.app = null;
         this.currentScreen = null;
         this.selectedElement = null;
+      
 
       //I don't know another solution for this. Editor.this in java Exists...  
         let me = this;
@@ -47,7 +48,6 @@ class Editor
     }
 
     editScreen(screenName){
-        console.log("Edit Scr: "+screenName);
         
         if (this.app == null)
             return;
@@ -131,6 +131,8 @@ class Editor
         console.log("Edit props");
         let html = document.createElement('div');
         html.classList.add('elements_panel');
+        html.setAttribute('elementId',e.id);
+
 
         let title = document.createElement('div');
         title.classList.add('elements-props-title')
@@ -152,6 +154,8 @@ class Editor
             let label = document.createElement('label');
             label.innerHTML = name;
             let display ;
+            
+
             if(type == "text" || type == "number"){
                 display = document.createElement('input');
                 display.value = value;
@@ -162,6 +166,9 @@ class Editor
                 display = document.createElement('input');
                 display.value = "undef";
             }
+            display.classList.add("propertyValueEditor");
+            display.setAttribute("property",prop.name);
+            display.setAttribute('elementId',e.id);
 
             prop_div.appendChild(label);
             prop_div.appendChild(display);
@@ -178,8 +185,25 @@ class Editor
 
         let confirm_button = document.createElement('button');
         confirm_button.innerHTML = "Confirm";
+        let me = this;
         confirm_button.onclick = function(){
+            
+            //update properties values.
+            let props = document.getElementsByClassName('propertyValueEditor');
+
+            
+            for (let i = 0; i< props.length; i++) {
+                    let el_id = props[i].getAttribute('elementId');
+                    let el_value = props[i].value;
+                    let el_prop = props[i].getAttribute('property');
+                    console.log("Id "+el_id + " prop: " + el_prop + " val: " + el_value);
+                    console.log(me.currentScreen);
+                    me.currentScreen.elements[el_id].setPropertyAndAttribute(el_prop, el_value);
+
+            }
+
             document.getElementById(Editor.PROPS_CONTEINER_ID).innerHTML = "";
+            
         };
 
         html.appendChild(cancel_button);

@@ -43,6 +43,16 @@ class PDLElement{
             }
         };
     }
+
+    setPropertyAndAttribute(name, value){
+        for(let p = 0; p < this.properties.length; p++){
+            if(this.properties[p]['name'] == name){
+                this.properties[p]['value'] = value;
+            }
+        }
+        this[name] = value;
+
+    }
     setAttributes(attrs){
         for(let k in attrs){
             this[k] = attrs[k];
