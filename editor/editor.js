@@ -150,7 +150,7 @@ class Editor
             let name    = prop['name'];
             let type    = prop['type'];
             let value   = prop['value']; 
-
+            console.log("Props. Name " + name + " type: " + type + " value: " +value);
             let label = document.createElement('label');
             label.innerHTML = name;
             let display ;
@@ -165,6 +165,13 @@ class Editor
             else if(type == "app_data"){
                 display = document.createElement('input');
                 display.value = "undef|app_data";
+                ///get app data... 
+
+                display.value = this.app.getData(value).value;
+                
+
+
+
             }
             display.classList.add("propertyValueEditor");
             display.setAttribute("property",prop.name);
