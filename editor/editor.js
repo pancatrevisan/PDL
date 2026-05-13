@@ -162,9 +162,9 @@ class Editor
                 
 
             }
-            else if(type == ""){
+            else if(type == "app_data"){
                 display = document.createElement('input');
-                display.value = "undef";
+                display.value = "undef|app_data";
             }
             display.classList.add("propertyValueEditor");
             display.setAttribute("property",prop.name);
