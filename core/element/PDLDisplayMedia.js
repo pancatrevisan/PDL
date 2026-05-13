@@ -9,7 +9,7 @@ class PDLDisplayMedia extends PDLElement{
     render(){
         let html = document.createElement('div');
         let _media = this.screen.app.getMedia(this.media);
-        
+        html.id = this.id;
         if(_media.type == PDLMedia.MEDIA_TYPE.IMAGE){
             let img = document.createElement('img');
             img.src = _media.src;
