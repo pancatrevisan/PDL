@@ -8,6 +8,9 @@ class PDLScreen{
         this.buildDisplayTag();
         this.app = null;
     }
+    getApp(){
+        return this.app;
+    }
 
     setApp(app){
         this.app = app;

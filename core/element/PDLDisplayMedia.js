@@ -4,6 +4,14 @@ class PDLDisplayMedia extends PDLElement{
         super();
         this.screen = false; 
         this.media  = null;
+        
+        this.availableEvents =[
+            
+        ];
+        //used in editor.
+        this.properties =[
+            {'name':'media', 'type':'media', 'value': ''}
+        ];
     }
 
     render(){
@@ -18,6 +26,7 @@ class PDLDisplayMedia extends PDLElement{
         this.addEvents(html);
         html.classList.add("media-pdl");
         html.classList.add("base-pdl-element");
+        html.classList.add("element-data-view");
 
         return html;
     }

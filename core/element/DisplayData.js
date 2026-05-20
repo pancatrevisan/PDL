@@ -9,7 +9,7 @@ class DisplayData extends PDLElement{
             {'name':'data', 'type':'app_data', 'value': ''}
         ];
 
-        this.screen = false; 
+        //this.screen = false; 
     }
 
     render(){

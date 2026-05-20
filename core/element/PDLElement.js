@@ -18,9 +18,7 @@ class PDLElement{
     setScreen(screen){
         this.screen = screen;
     }
-    setApp(app){
-        this.app = app;
-    }
+    
     addEvents(html_tag){
         
         for(let k in this.events){
@@ -42,6 +40,13 @@ class PDLElement{
                 el.screen.app.commandCenter.pushCommand(commands[i]);
             }
         };
+    }
+    getApp(){
+        return this.screen.getApp();
+    }
+    setPropertyDataValue(dataName, value){
+        console.log("Updata data "+dataName + " : " + value);
+        this.getApp().updateDataValue(dataName, value);
     }
 
     setPropertyAndAttribute(name, value){

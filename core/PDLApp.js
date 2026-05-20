@@ -22,11 +22,21 @@ class PDLApp{
         return this.media[name];
     }
 
+    updateDataValue(data_name, value){
+        if(this.data == null)
+        {
+            return;
+        }
+        console.log(this.data);
+        this.data[data_name].value = value;
+        console.log(this.data);
+    }
     getData(name){
         return this.data[name];
     }
     setData(data){
         this.data = data;
+        
     }
 
     addScreen(screen){

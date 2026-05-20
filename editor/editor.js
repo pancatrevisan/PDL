@@ -168,14 +168,21 @@ class Editor
                 ///get app data... 
 
                 display.value = this.app.getData(value).value;
+                display.setAttribute('element-data-view', true);
+                display.setAttribute('element-data-name', value);
                 
 
 
 
             }
+            else if(type == "media"){
+
+            }
             display.classList.add("propertyValueEditor");
             display.setAttribute("property",prop.name);
             display.setAttribute('elementId',e.id);
+
+            
 
             prop_div.appendChild(label);
             prop_div.appendChild(display);
@@ -200,12 +207,23 @@ class Editor
 
             
             for (let i = 0; i< props.length; i++) {
+
+
                     let el_id = props[i].getAttribute('elementId');
                     let el_value = props[i].value;
                     let el_prop = props[i].getAttribute('property');
                     console.log("Id "+el_id + " prop: " + el_prop + " val: " + el_value);
                     console.log(me.currentScreen);
-                    me.currentScreen.elements[el_id].setPropertyAndAttribute(el_prop, el_value);
+                    if(props[i].getAttribute('element-data-view')){
+                        let app_data_name = props[i].getAttribute('element-data-name');
+                        console.log(me.currentScreen.elements[el_id]);
+                        console.log("set: "+app_data_name + " value: " + el_value);
+                        me.currentScreen.elements[el_id].setPropertyDataValue(app_data_name, el_value);
+                    }
+                    else{
+                        me.currentScreen.elements[el_id].setPropertyAndAttribute(el_prop, el_value);
+                    }
+                    
 
             }
 
