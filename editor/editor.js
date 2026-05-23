@@ -228,6 +228,8 @@ class Editor
             }
 
             document.getElementById(Editor.PROPS_CONTEINER_ID).innerHTML = "";
+
+            me.editScreen(me.currentScreen.name);
             
         };
 
