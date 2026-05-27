@@ -5,7 +5,8 @@ class Editor
     static SCREENS_PANEL = "screens_panel";
     static EDITOR_PROPS_PANEL_ID = "props_panel";
     static PROPS_CONTEINER_ID = "elementProperties";
-    
+    static EVENTS_CONTEINER_ID = "elementEvents";
+    static EDITOR_EVENTS_PANEL_ID = "events_panel";
 
     constructor(xml=null){
 
@@ -77,6 +78,7 @@ class Editor
             e.onclick = function(){
 
                 me.pdlElement_editProps(e);
+                me.pdlElement_editEvents(e);
             };
             /*
             let _editButton = document.createElement('button');
@@ -127,6 +129,48 @@ class Editor
         
     }
 
+    pdlElement_editEvents(e){
+        console.log("Edit events");
+        let html = document.createElement('div');
+        html.classList.add('elements_panel');
+        html.setAttribute('elementId',e.id);
+
+
+        let title = document.createElement('div');
+        title.classList.add('elements-props-title')
+        title.innerHTML = "Events";
+
+
+        html.appendChild(title);
+        html.id= Editor.EDITOR_EVENTS_PANEL_ID;
+
+        let events = this.currentScreen.elements[e.id].availableEvents;
+
+        for (let i = 0; i< events.length; i++) {
+            let event = events[i];
+            let event_div = document.createElement("div");
+            event_div.classList.add("props-editor-item");
+            let name    = event['name'];
+            let possible_values = Actions.POSSIBLE_VALUES[name];
+
+            let value   = event['value']; 
+
+
+            
+            let label = document.createElement('label');
+            label.innerHTML = name;
+
+            let display ;
+        }
+
+        let me = this;
+        
+        document.getElementById(Editor.EVENTS_CONTEINER_ID).innerHTML = "";
+        document.getElementById(Editor.EVENTS_CONTEINER_ID).append(html);
+
+        me.editScreen(me.currentScreen.name);
+            
+    }
     pdlElement_editProps(e){
         console.log("Edit props");
         let html = document.createElement('div');

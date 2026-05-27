@@ -7,7 +7,7 @@ class Loader{
     loadScripts(prefix=""){
         let    fileList = ['command/CommandCenter.js','core/PDLData.js', 'core/PDLScreen.js','core/PDLMedia.js', 'core/PDLApp.js', 'core/element/PDLElement.js',
            'core/element/PDLButton.js', 'core/element/PDLDisplayMedia.js','core/element/DisplayData.js','command/Command.js', 'command/NextScreen.js',
-            'core/PDLAppLoader.js'];
+            'core/PDLAppLoader.js', 'core/Actions.js'];
 
         for(let i = 0; i < fileList.length; i++){
             let file = prefix+fileList[i];
