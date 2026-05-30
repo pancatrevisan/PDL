@@ -3,7 +3,7 @@ class PDLButton extends PDLElement{
         super();
         
         this.availableEvents =[
-            {'name':'onclick', 'value': ''}
+            {'name':'onclick', 'value': '', 'param':''}
         ];
         //used in editor.
         this.properties =[

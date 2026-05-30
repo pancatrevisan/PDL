@@ -27,9 +27,7 @@ class PDLApp{
         {
             return;
         }
-        console.log(this.data);
         this.data[data_name].value = value;
-        console.log(this.data);
     }
     getData(name){
         return this.data[name];

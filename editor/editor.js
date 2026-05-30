@@ -79,6 +79,7 @@ class Editor
 
                 me.pdlElement_editProps(e);
                 me.pdlElement_editEvents(e);
+                me.pdlElement_addElementControls();
             };
             /*
             let _editButton = document.createElement('button');
@@ -151,7 +152,19 @@ class Editor
             let event_div = document.createElement("div");
             event_div.classList.add("props-editor-item");
             let name    = event['name'];
+
             let possible_values = Actions.POSSIBLE_VALUES[name];
+
+            let sel = document.createElement('select');
+            for(let i = 0; i < possible_values.length; i++){
+                let opt = document.createElement('option');
+                opt.value = possible_values[i];
+                opt.innerHTML = possible_values[i];
+                sel.appendChild(opt);
+            }
+
+
+
 
             let value   = event['value']; 
 
@@ -159,17 +172,26 @@ class Editor
             
             let label = document.createElement('label');
             label.innerHTML = name;
+            
 
-            let display ;
+
+            let param_label = document.createElement('label');
+            param_label.innerHTML = "Param: ";
+            let param_input = document.createElement('input');
+            param_input.value = event['param'];
+            
+            html.append(label);
+            html.append(sel);
+            html.append(param_label);
+            html.append(param_input);
+
         }
 
         let me = this;
         
         document.getElementById(Editor.EVENTS_CONTEINER_ID).innerHTML = "";
         document.getElementById(Editor.EVENTS_CONTEINER_ID).append(html);
-
-        me.editScreen(me.currentScreen.name);
-            
+        me.editScreen(me.currentScreen.name);    
     }
     pdlElement_editProps(e){
         console.log("Edit props");
@@ -235,6 +257,13 @@ class Editor
             document.getElementById(Editor.PROPS_CONTEINER_ID).append(html);
         }
 
+
+
+
+
+    }
+    pdlElement_addElementControls(){
+        
         let cancel_button = document.createElement('button');
         cancel_button.innerHTML = "Cancel";
         cancel_button.onclick = function(){
@@ -272,13 +301,10 @@ class Editor
             me.editScreen(me.currentScreen.name);
             
         };
-
-        html.appendChild(cancel_button);
-        html.appendChild(confirm_button);
-
-
-
-
+        let conteiner = document.getElementById('elementControls');
+        conteiner.innerHTML = "";
+        conteiner.appendChild(cancel_button);
+        conteiner.appendChild(confirm_button);
     }
 
     pdlElement_onclick(e){
