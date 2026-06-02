@@ -161,6 +161,10 @@ class Editor
                 opt.value = possible_values[i];
                 opt.innerHTML = possible_values[i];
                 sel.appendChild(opt);
+
+                sel.setAttribute('eventName', name);
+                sel.classList.add('eventEditorSelect');
+                sel.setAttribute('elementId', e.id);
             }
 
 
@@ -179,6 +183,9 @@ class Editor
             param_label.innerHTML = "Param: ";
             let param_input = document.createElement('input');
             param_input.value = event['param'];
+            param_input.setAttribute('eventName', name);
+            param_input.classList.add('eventEditorParam');
+            param_input.setAttribute('elementId', e.id);
             
             html.append(label);
             html.append(sel);
@@ -294,6 +301,43 @@ class Editor
                     }
                     
 
+            }
+            let update_values = {};
+            let selects = document.getElementsByClassName('eventEditorSelect');
+            for(let i = 0; i < selects.length; i++){
+                let eventName = selects[i].getAttribute('eventName');
+                let value = selects[i].value;
+                if(eventName in update_values){
+                    update_values[eventName]['value'] = value;
+                }
+                else{
+                    update_values[eventName] = {
+                        'value' : value,
+                        'param': '',
+                        'elementId':selects[i].getAttribute('elementId')
+                    };
+                }
+            }
+            let params = document.getElementsByClassName('eventEditorParam');
+            for(let i = 0; i < params.length; i++){
+                let eventName = params[i].getAttribute('eventName');
+                let value = params[i].value;
+                if(eventName in update_values){
+                    update_values[eventName]['param'] = value;
+                }
+                else{
+                    update_values[eventName] = {
+                        'value' : '',
+                        'param': value,
+                        'elementId':params[i].getAttribute('elementId')
+                    };
+                }
+            }
+
+
+            for(let i = 0; i < update_values.length; i++){
+
+                //me.currentScreen.elements[update_values[i]['elementId']].setEventDataValue();
             }
 
             document.getElementById(Editor.PROPS_CONTEINER_ID).innerHTML = "";

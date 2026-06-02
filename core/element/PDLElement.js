@@ -44,6 +44,9 @@ class PDLElement{
     getApp(){
         return this.screen.getApp();
     }
+    setEventDataValue(event, value, param){
+        
+    }
     setPropertyDataValue(dataName, value){
         console.log("Updata data "+dataName + " : " + value);
         this.getApp().updateDataValue(dataName, value);
