@@ -302,6 +302,7 @@ class Editor
                     
 
             }
+            //update events configs.
             let update_values = {};
             let selects = document.getElementsByClassName('eventEditorSelect');
             for(let i = 0; i < selects.length; i++){
@@ -335,9 +336,15 @@ class Editor
             }
 
 
-            for(let i = 0; i < update_values.length; i++){
+            //for(let i = 0; i < update_values.length; i++){
+            for(const key in update_values){
 
-                //me.currentScreen.elements[update_values[i]['elementId']].setEventDataValue();
+                let el_id = update_values[key]['elementId'];
+                let event = key; //update_values[key]['eventName'];
+                let value = update_values[key]['value'];
+                let param = update_values[key]['param'];
+
+                me.currentScreen.elements[el_id].setEventDataValue(event, value, param);
             }
 
             document.getElementById(Editor.PROPS_CONTEINER_ID).innerHTML = "";
