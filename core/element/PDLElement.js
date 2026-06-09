@@ -40,6 +40,12 @@ class PDLElement{
                 el.screen.app.commandCenter.pushCommand(commands[i]);
             }
         };
+        console.log("Commands");
+        //TODO: aqui
+        for(let i = 0; i < commands.length; i++){      
+            console.log((commands[i]));
+        }
+        
     }
     getApp(){
         return this.screen.getApp();
