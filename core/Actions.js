@@ -1,6 +1,6 @@
 class Actions{
     static POSSIBLE_VALUES = {
-        'onclick':['nextScreen'],
+        'click':['nextScreen'],
     };
     static actions = {};
     static events = {};

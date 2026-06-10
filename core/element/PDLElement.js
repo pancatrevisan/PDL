@@ -40,11 +40,17 @@ class PDLElement{
                 el.screen.app.commandCenter.pushCommand(commands[i]);
             }
         };
-        console.log("Commands");
-        //TODO: aqui
-        for(let i = 0; i < commands.length; i++){      
-            console.log((commands[i]));
+
+
+        for(let i = 0; i < this.availableEvents.length; i++){
+            if(this.availableEvents[i]['name'] == name){
+                //TODO: only accepts 1 command
+                this.availableEvents[i]['value'] = commands[0]['type'];
+                this.availableEvents[i]['param'] = commands[0]['nextScreenName'];
+                
+            }
         }
+
         
     }
     getApp(){
@@ -52,6 +58,14 @@ class PDLElement{
     }
     setEventDataValue(event, value, param){
         console.log("update :" + event + ","+value+","+param);
+        for(let i = 0; i < this.availableEvents.length; i++){
+            if(this.availableEvents[i]['name'] == event){
+                //TODO: only accepts 1 command
+                this.availableEvents[i]['value'] = value;
+                this.availableEvents[i]['param'] = param;
+                
+            }
+        }
     }
     setPropertyDataValue(dataName, value){
         console.log("Updata data "+dataName + " : " + value);
