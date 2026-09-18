@@ -1,0 +1,85 @@
+<PDLApp>
+    <startScreen>tela1</startScreen>
+    <version>1.0</version>
+    <name>Truco - Instruções</name>
+    <data>
+        <PDLData name="titulo1" type="TEXT" displayOnly="true" value="TRUCO"></PDLData>
+        <PDLData name="texto1" type="TEXT" displayOnly="true" value="O truco é um jogo de cartas muito popular no Brasil. O objetivo é vencer duas rodadas antes do adversário."></PDLData>
+        <PDLData name="titulo2" type="TEXT" displayOnly="true" value="Como jogar"></PDLData>
+        <PDLData name="texto2" type="TEXT" displayOnly="true" value="Cada jogador recebe três cartas. Na rodada, cada um joga uma carta. A maior carta vence a mão, e a dupla que ganhar duas mãos ganha a rodada."></PDLData>
+        <PDLData name="titulo3" type="TEXT" displayOnly="true" value="Valores e manilhas"></PDLData>
+        <PDLData name="texto3" type="TEXT" displayOnly="true" value="As manilhas são as cartas que vencem as demais em ordem definida pelo baralho. Quando a rodada fica disputada, vale chamar truco para aumentar os pontos."></PDLData>
+        <PDLData name="titulo4" type="TEXT" displayOnly="true" value="Pontos e vitória"></PDLData>
+        <PDLData name="texto4" type="TEXT" displayOnly="true" value="A partida é vencida pela dupla que chegar ao total de pontos acordado antes. Se quiser, pode se aceitar, recusar ou aumentar a aposta com o truco."></PDLData>
+    </data>
+    <screens>
+        <screen name="tela1">
+            <element type="DisplayData" data="titulo1" x="120" y="15" w="150" h="20"></element>
+            <element type="DisplayData" data="texto1" x="25" y="50" w="260" h="90"></element>
+            <element type="PDLButton" x="110" y="170" text="Próxima">
+                <actions>
+                    <click>
+                        <command type="NextScreen" nextScreenName="tela2"></command>
+                    </click>
+                </actions>
+            </element>
+        </screen>
+
+        <screen name="tela2">
+            <element type="DisplayData" data="titulo2" x="100" y="15" w="180" h="20"></element>
+            <element type="DisplayData" data="texto2" x="25" y="50" w="260" h="90"></element>
+            <element type="PDLButton" x="20" y="170" text="Anterior">
+                <actions>
+                    <click>
+                        <command type="NextScreen" nextScreenName="tela1"></command>
+                    </click>
+                </actions>
+            </element>
+            <element type="PDLButton" x="180" y="170" text="Próxima">
+                <actions>
+                    <click>
+                        <command type="NextScreen" nextScreenName="tela3"></command>
+                    </click>
+                </actions>
+            </element>
+        </screen>
+
+        <screen name="tela3">
+            <element type="DisplayData" data="titulo3" x="90" y="15" w="210" h="20"></element>
+            <element type="DisplayData" data="texto3" x="25" y="50" w="260" h="90"></element>
+            <element type="PDLButton" x="20" y="170" text="Anterior">
+                <actions>
+                    <click>
+                        <command type="NextScreen" nextScreenName="tela2"></command>
+                    </click>
+                </actions>
+            </element>
+            <element type="PDLButton" x="180" y="170" text="Próxima">
+                <actions>
+                    <click>
+                        <command type="NextScreen" nextScreenName="tela4"></command>
+                    </click>
+                </actions>
+            </element>
+        </screen>
+
+        <screen name="tela4">
+            <element type="DisplayData" data="titulo4" x="90" y="15" w="210" h="20"></element>
+            <element type="DisplayData" data="texto4" x="25" y="50" w="260" h="90"></element>
+            <element type="PDLButton" x="20" y="170" text="Anterior">
+                <actions>
+                    <click>
+                        <command type="NextScreen" nextScreenName="tela3"></command>
+                    </click>
+                </actions>
+            </element>
+            <element type="PDLButton" x="180" y="170" text="Início">
+                <actions>
+                    <click>
+                        <command type="NextScreen" nextScreenName="tela1"></command>
+                    </click>
+                </actions>
+            </element>
+        </screen>
+    </screens>
+</PDLApp>

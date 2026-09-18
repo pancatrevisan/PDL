@@ -1,8 +1,10 @@
 body{
     background-color: gainsboro;
+    position: relative;
 }
 
 .btn-pdl{
+    position: absolute;
     font-size: 14pt;
     background-color: red;
     color: #fff;
@@ -10,4 +12,13 @@ body{
     text-shadow: 2px 2px #000;
     border-radius: 5px;
     padding: 3px;
+}
+
+.input-pdl{
+    border-radius: 5px;
+    border-style: solid;
+    border-color: blue;
+}
+.media-pdl{
+    position: absolute;
 }

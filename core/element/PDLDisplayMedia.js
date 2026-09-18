@@ -21,8 +21,12 @@ class PDLDisplayMedia extends PDLElement{
         if(_media.type == PDLMedia.MEDIA_TYPE.IMAGE){
             let img = document.createElement('img');
             img.src = _media.src;
+            img.width = this.w;
+            img.height = this.h;
             html.appendChild(img);
         }
+        html.style.top = this.y+"px";
+        html.style.left = this.x+"px";
         this.addEvents(html);
         html.classList.add("media-pdl");
         html.classList.add("base-pdl-element");

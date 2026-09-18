@@ -12,12 +12,17 @@ class PDLButton extends PDLElement{
 
     }
     render(){
+        
         let html = document.createElement('button');
         html.id = this.id;
         html.innerHTML = this.text;
+        html.style.top = this.y+"px";
+        html.style.left = this.x+"px";
+
         html.classList.add("btn-pdl");
         html.classList.add("base-pdl-element");
         this.addEvents(html);
+        console.log(this);
         return html;
     }
 }

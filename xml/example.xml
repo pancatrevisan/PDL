@@ -11,7 +11,7 @@
     <screens>
         <screen name="firstScreen">
 
-            <element type="PDLButton" position="[10,20]" text="Próxima Tela">
+            <element type="PDLButton" x="10" y="20" text="Próxima Tela">
                 <actions>
                     <click>
                         <command type="NextScreen" nextScreenName="secondScreen"></command>
@@ -19,7 +19,7 @@
                 </actions>
                 
             </element>
-            <element type="PDLDisplayMedia" media="logo_image" position="[50,50]">
+            <element type="PDLDisplayMedia" media="logo_image" x="150" y="150" w="100" h="50">
                 <actions>
                     <click>
                         <command type="NextScreen" nextScreenName="secondScreen"></command>
@@ -32,7 +32,7 @@
             <element type="DisplayData" data="input_test">
 
             </element>
-            <element type="PDLButton" position="[10,20]" text="Tela Anterior">
+            <element type="PDLButton" x="10" y="20" text="Tela Anterior">
                 <actions>
                     <click>
                         <command type="NextScreen" nextScreenName="firstScreen"></command>
