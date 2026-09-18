@@ -20,5 +20,14 @@ body{
     border-color: blue;
 }
 .media-pdl{
+
+    
     position: absolute;
+}
+.text-pdl{
+
+    position: absolute;
+    display: block;
+    width: 200px;
+   
 }

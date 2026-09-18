@@ -16,6 +16,11 @@ class PDLScreen{
         this.app = app;
     }
     buildDisplayTag(){
+        let existing = document.getElementById(PDLApp.APP_DISPLAY_ID);
+        if(existing){
+            return;
+        }
+
         let display = document.createElement("div");
         display.id =  PDLApp.APP_DISPLAY_ID;
 

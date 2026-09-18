@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 160" role="img" aria-label="Ilustração dos pontos do truco">
+  <rect width="220" height="160" rx="18" fill="#1d3d4a"/>
+  <rect x="32" y="26" width="156" height="108" rx="12" fill="#f3f5f7"/>
+  <rect x="46" y="40" width="56" height="80" rx="10" fill="#d9e4ee"/>
+  <rect x="118" y="40" width="56" height="80" rx="10" fill="#d9e4ee"/>
+
+  <text x="74" y="70" text-anchor="middle" font-size="22" font-family="Arial, sans-serif" fill="#175b7b" font-weight="700">12</text>
+  <text x="146" y="70" text-anchor="middle" font-size="22" font-family="Arial, sans-serif" fill="#9a4d2d" font-weight="700">9</text>
+
+  <text x="74" y="96" text-anchor="middle" font-size="12" font-family="Arial, sans-serif" fill="#175b7b" font-weight="700">NÓS</text>
+  <text x="146" y="96" text-anchor="middle" font-size="12" font-family="Arial, sans-serif" fill="#9a4d2d" font-weight="700">ELAS</text>
+
+  <path d="M80 108 L110 78 L140 108" fill="none" stroke="#ebc14c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="110" y="138" text-anchor="middle" font-size="16" font-family="Arial, sans-serif" fill="#f5d76d" font-weight="700">PONTOS</text>
+</svg>

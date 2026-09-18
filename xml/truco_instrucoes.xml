@@ -12,10 +12,17 @@
         <PDLData name="titulo4" type="TEXT" displayOnly="true" value="Pontos e vitória"></PDLData>
         <PDLData name="texto4" type="TEXT" displayOnly="true" value="A partida é vencida pela dupla que chegar ao total de pontos acordado antes. Se quiser, pode se aceitar, recusar ou aumentar a aposta com o truco."></PDLData>
     </data>
+    <media>
+        <PDLMedia name="truco_basico" type="IMAGE" src="img/truco_basico.svg"></PDLMedia>
+        <PDLMedia name="truco_rodada" type="IMAGE" src="img/truco_rodada.svg"></PDLMedia>
+        <PDLMedia name="truco_manilha" type="IMAGE" src="img/truco_manilha.svg"></PDLMedia>
+        <PDLMedia name="truco_pontos" type="IMAGE" src="img/truco_pontos.svg"></PDLMedia>
+    </media>
     <screens>
         <screen name="tela1">
-            <element type="DisplayData" data="titulo1" x="120" y="15" w="150" h="20"></element>
-            <element type="DisplayData" data="texto1" x="25" y="50" w="260" h="90"></element>
+            <element type="DisplayData" data="titulo1" displayOnly="true" x="120" y="15" w="150" h="20"></element>
+            <element type="DisplayData" data="texto1" displayOnly="true" x="20" y="50" w="150" h="100"></element>
+            <element type="PDLDisplayMedia" media="truco_basico" x="190" y="55" w="110" h="90"></element>
             <element type="PDLButton" x="110" y="170" text="Próxima">
                 <actions>
                     <click>
@@ -26,8 +33,9 @@
         </screen>
 
         <screen name="tela2">
-            <element type="DisplayData" data="titulo2" x="100" y="15" w="180" h="20"></element>
-            <element type="DisplayData" data="texto2" x="25" y="50" w="260" h="90"></element>
+            <element type="DisplayData" data="titulo2" displayOnly="true" x="100" y="15" w="180" h="20"></element>
+            <element type="DisplayData" data="texto2" displayOnly="true" x="20" y="50" w="150" h="100"></element>
+            <element type="PDLDisplayMedia" media="truco_rodada" x="190" y="55" w="110" h="90"></element>
             <element type="PDLButton" x="20" y="170" text="Anterior">
                 <actions>
                     <click>
@@ -45,8 +53,9 @@
         </screen>
 
         <screen name="tela3">
-            <element type="DisplayData" data="titulo3" x="90" y="15" w="210" h="20"></element>
-            <element type="DisplayData" data="texto3" x="25" y="50" w="260" h="90"></element>
+            <element type="DisplayData" data="titulo3" displayOnly="true" x="90" y="15" w="210" h="20"></element>
+            <element type="DisplayData" data="texto3" displayOnly="true" x="20" y="50" w="150" h="100"></element>
+            <element type="PDLDisplayMedia" media="truco_manilha" x="190" y="55" w="110" h="90"></element>
             <element type="PDLButton" x="20" y="170" text="Anterior">
                 <actions>
                     <click>
@@ -64,8 +73,9 @@
         </screen>
 
         <screen name="tela4">
-            <element type="DisplayData" data="titulo4" x="90" y="15" w="210" h="20"></element>
-            <element type="DisplayData" data="texto4" x="25" y="50" w="260" h="90"></element>
+            <element type="DisplayData" data="titulo4" displayOnly="true" x="90" y="15" w="210" h="20"></element>
+            <element type="DisplayData" data="texto4" displayOnly="true" x="20" y="50" w="150" h="100"></element>
+            <element type="PDLDisplayMedia" media="truco_pontos" x="190" y="55" w="110" h="90"></element>
             <element type="PDLButton" x="20" y="170" text="Anterior">
                 <actions>
                     <click>

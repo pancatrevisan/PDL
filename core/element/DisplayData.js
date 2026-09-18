@@ -13,10 +13,22 @@ class DisplayData extends PDLElement{
     }
 
     render(){
-        let html = document.createElement('input');
+
+        let html;
+        if(this.screen.app.getData(this.data).value.length > 20){
+            html = document.createElement('div');
+            html.classList.add("text-pdl");
+            html.innerHTML= this.screen.app.getData(this.data).value;
+        } else{
+            html = document.createElement('input');
+            html.classList.add("input-pdl");
+            html.value = this.screen.app.getData(this.data).value;
+        }
+        html.style.top = this.y+"px";
+        html.style.left = this.x+"px";
         html.id = this.id;
-        html.value = this.screen.app.getData(this.data).value;
-        html.classList.add("input-pdl");
+        
+        
 
         return html;
     }
