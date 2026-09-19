@@ -15,6 +15,7 @@ body{
 }
 
 .input-pdl{
+    position: absolute;
     border-radius: 5px;
     border-style: solid;
     border-color: blue;
@@ -28,6 +29,6 @@ body{
 
     position: absolute;
     display: block;
-    width: 200px;
+    width: 240px;
    
 }
