@@ -1,0 +1,167 @@
+<PDLApp>
+    <startScreen>tela1</startScreen>
+    <version>1.0</version>
+    <name>Monopoly - Instruções</name>
+    <data>
+        <PDLData name="titulo1" type="TEXT" displayOnly="true" value="MONOPOLY"></PDLData>
+        <PDLData name="texto1" type="TEXT" displayOnly="true" value="Monopoly é um jogo de compra, aluguel e estratégia. O objetivo é acumular riqueza, controlar propriedades e deixar os adversários sem dinheiro para continuar."></PDLData>
+
+        <PDLData name="titulo2" type="TEXT" displayOnly="true" value="Como começar"></PDLData>
+        <PDLData name="texto2" type="TEXT" displayOnly="true" value="Cada jogador recebe dinheiro inicial, escolhe uma peça e inicia na casa de partida. A ordem da partida segue no sentido horário e cada rodada começa com a vez de um jogador."></PDLData>
+
+        <PDLData name="titulo3" type="TEXT" displayOnly="true" value="Turnos e dados"></PDLData>
+        <PDLData name="texto3" type="TEXT" displayOnly="true" value="No seu turno, você joga os dados, anda pelo tabuleiro e resolve o que acontece: compra, paga aluguel, ganha dinheiro, passa pela prisão ou cai em multas e impostos."></PDLData>
+
+        <PDLData name="titulo4" type="TEXT" displayOnly="true" value="Propriedades e aluguel"></PDLData>
+        <PDLData name="texto4" type="TEXT" displayOnly="true" value="Ao cair em uma propriedade disponível, você pode comprá-la. Se outro jogador passar por lá, ele paga aluguel. Quanto mais casas e hotéis, maiores os ganhos e mais forte a sua estratégia."></PDLData>
+
+        <PDLData name="titulo5" type="TEXT" displayOnly="true" value="Casas e hotéis"></PDLData>
+        <PDLData name="texto5" type="TEXT" displayOnly="true" value="Depois de comprar um conjunto da mesma cor, você pode construir casas e hotéis. Isso aumenta muito o valor dos aluguéis e torna seu conjunto mais difícil de ser contestado."></PDLData>
+
+        <PDLData name="titulo6" type="TEXT" displayOnly="true" value="Prisão e derrota"></PDLData>
+        <PDLData name="texto6" type="TEXT" displayOnly="true" value="Se você cair em uma casa de prisão, perder o turno ou não conseguir pagar uma dívida, pode ficar em situação difícil. O jogo termina quando todos os outros jogadores ficam sem dinheiro."></PDLData>
+
+        <PDLData name="titulo7" type="TEXT" displayOnly="true" value="Objetivo da partida"></PDLData>
+        <PDLData name="texto7" type="TEXT" displayOnly="true" value="Você vence quando todos os adversários ficam sem dinheiro ou sem possibilidade de continuar. A melhor estratégia combina compra inteligente, gestão de caixa e pressão financeira sobre os rivais."></PDLData>
+    </data>
+    <media>
+        <PDLMedia name="monopoly_inicio" type="IMAGE" src="img/monopoly_inicio.svg"></PDLMedia>
+        <PDLMedia name="monopoly_turno" type="IMAGE" src="img/monopoly_turno.svg"></PDLMedia>
+        <PDLMedia name="monopoly_propriedades" type="IMAGE" src="img/monopoly_propriedades.svg"></PDLMedia>
+        <PDLMedia name="monopoly_vitoria" type="IMAGE" src="img/monopoly_vitoria.svg"></PDLMedia>
+    </media>
+    <screens>
+        <screen name="tela1">
+            <element type="DisplayData" data="titulo1" displayOnly="true" x="120" y="25" w="180" h="20"></element>
+            <element type="DisplayData" data="texto1" displayOnly="true" x="20" y="70" w="160" h="110"></element>
+            <element type="PDLDisplayMedia" media="monopoly_inicio" x="20" y="180" w="210" h="190"></element>
+            <element type="PDLButton" x="110" y="390" text="Próxima">
+                <actions>
+                    <click>
+                        <command type="NextScreen" nextScreenName="tela2"></command>
+                    </click>
+                </actions>
+            </element>
+        </screen>
+
+        <screen name="tela2">
+            <element type="DisplayData" data="titulo2" displayOnly="true" x="90" y="25" w="210" h="20"></element>
+            <element type="DisplayData" data="texto2" displayOnly="true" x="20" y="70" w="160" h="120"></element>
+            <element type="PDLDisplayMedia" media="monopoly_turno" x="20" y="230" w="210" h="170"></element>
+            <element type="PDLButton" x="20" y="410" text="Anterior">
+                <actions>
+                    <click>
+                        <command type="NextScreen" nextScreenName="tela1"></command>
+                    </click>
+                </actions>
+            </element>
+            <element type="PDLButton" x="180" y="410" text="Próxima">
+                <actions>
+                    <click>
+                        <command type="NextScreen" nextScreenName="tela3"></command>
+                    </click>
+                </actions>
+            </element>
+        </screen>
+
+        <screen name="tela3">
+            <element type="DisplayData" data="titulo3" displayOnly="true" x="90" y="25" w="210" h="20"></element>
+            <element type="DisplayData" data="texto3" displayOnly="true" x="20" y="70" w="160" h="120"></element>
+            <element type="PDLDisplayMedia" media="monopoly_turno" x="20" y="190" w="210" h="170"></element>
+            <element type="PDLButton" x="20" y="390" text="Anterior">
+                <actions>
+                    <click>
+                        <command type="NextScreen" nextScreenName="tela2"></command>
+                    </click>
+                </actions>
+            </element>
+            <element type="PDLButton" x="180" y="390" text="Próxima">
+                <actions>
+                    <click>
+                        <command type="NextScreen" nextScreenName="tela4"></command>
+                    </click>
+                </actions>
+            </element>
+        </screen>
+
+        <screen name="tela4">
+            <element type="DisplayData" data="titulo4" displayOnly="true" x="65" y="25" w="260" h="20"></element>
+            <element type="DisplayData" data="texto4" displayOnly="true" x="20" y="70" w="160" h="120"></element>
+            <element type="PDLDisplayMedia" media="monopoly_propriedades" x="20" y="190" w="210" h="170"></element>
+            <element type="PDLButton" x="20" y="390" text="Anterior">
+                <actions>
+                    <click>
+                        <command type="NextScreen" nextScreenName="tela3"></command>
+                    </click>
+                </actions>
+            </element>
+            <element type="PDLButton" x="180" y="390" text="Próxima">
+                <actions>
+                    <click>
+                        <command type="NextScreen" nextScreenName="tela5"></command>
+                    </click>
+                </actions>
+            </element>
+        </screen>
+
+        <screen name="tela5">
+            <element type="DisplayData" data="titulo5" displayOnly="true" x="90" y="25" w="210" h="20"></element>
+            <element type="DisplayData" data="texto5" displayOnly="true" x="20" y="70" w="160" h="120"></element>
+            <element type="PDLDisplayMedia" media="monopoly_propriedades" x="20" y="190" w="210" h="170"></element>
+            <element type="PDLButton" x="20" y="390" text="Anterior">
+                <actions>
+                    <click>
+                        <command type="NextScreen" nextScreenName="tela4"></command>
+                    </click>
+                </actions>
+            </element>
+            <element type="PDLButton" x="180" y="390" text="Próxima">
+                <actions>
+                    <click>
+                        <command type="NextScreen" nextScreenName="tela6"></command>
+                    </click>
+                </actions>
+            </element>
+        </screen>
+
+        <screen name="tela6">
+            <element type="DisplayData" data="titulo6" displayOnly="true" x="85" y="25" w="220" h="20"></element>
+            <element type="DisplayData" data="texto6" displayOnly="true" x="20" y="70" w="160" h="120"></element>
+            <element type="PDLDisplayMedia" media="monopoly_vitoria" x="20" y="190" w="210" h="170"></element>
+            <element type="PDLButton" x="20" y="390" text="Anterior">
+                <actions>
+                    <click>
+                        <command type="NextScreen" nextScreenName="tela5"></command>
+                    </click>
+                </actions>
+            </element>
+            <element type="PDLButton" x="180" y="390" text="Final">
+                <actions>
+                    <click>
+                        <command type="NextScreen" nextScreenName="tela7"></command>
+                    </click>
+                </actions>
+            </element>
+        </screen>
+
+        <screen name="tela7">
+            <element type="DisplayData" data="titulo7" displayOnly="true" x="90" y="25" w="210" h="20"></element>
+            <element type="DisplayData" data="texto7" displayOnly="true" x="20" y="70" w="160" h="120"></element>
+            <element type="PDLDisplayMedia" media="monopoly_vitoria" x="20" y="190" w="210" h="170"></element>
+            <element type="PDLButton" x="20" y="390" text="Anterior">
+                <actions>
+                    <click>
+                        <command type="NextScreen" nextScreenName="tela6"></command>
+                    </click>
+                </actions>
+            </element>
+            <element type="PDLButton" x="180" y="390" text="Início">
+                <actions>
+                    <click>
+                        <command type="NextScreen" nextScreenName="tela1"></command>
+                    </click>
+                </actions>
+            </element>
+        </screen>
+    </screens>
+</PDLApp>
